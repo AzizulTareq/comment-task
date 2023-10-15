@@ -6,6 +6,7 @@ import cors from "cors";
 dotenv.config();
 import connectDB from "./database/db.js";
 import userRoutes from "./routes/userRoutes.js";
+import commentRoutes from "./routes/commentRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use("/api/users", userRoutes);
+app.use("/api/comments", commentRoutes);
 
 // error handaling
 app.use(notFound);

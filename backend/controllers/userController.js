@@ -4,6 +4,7 @@ import User from "../models/userModel.js";
 
 const authUser = handleAsync(async (req, res) => {
   const { email, password } = req.body;
+  console.log(req.user)
 
   const user = await User.findOne({ email });
 
