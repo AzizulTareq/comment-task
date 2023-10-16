@@ -38,7 +38,7 @@ Before you begin, ensure you have met the following requirements:
    npm start
 ```
 5. Return to the project root directory:
-  ```
+  ```bash
   cd ..
   ```
 4. Install dependencies for the frontend and run:
