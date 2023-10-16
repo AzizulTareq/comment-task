@@ -150,6 +150,48 @@ const removeDislike = handleAsync(async (req, res) => {
   res.json(comment);
 });
 
+const getCommentsWithMostLikes = async (req, res) => {
+  try {
+    const comments = await Comment.find()
+      .sort({ "likes.length": -1 })
+      .populate("user", "username")
+      .exec();
+
+    res.json(comments);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
+const getCommentsWithMostDislikes = async (req, res) => {
+  try {
+    const comments = await Comment.find()
+      .sort({ "dislikes.length": -1 })
+      .populate("user", "username")
+      .exec();
+
+    res.json(comments);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
+const getCommentsMostRecent = async (req, res) => {
+  try {
+    const comments = await Comment.find()
+      .sort({ createdAt: -1 })
+      .populate("user", "username")
+      .exec();
+
+    res.json(comments);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
 export {
   createComment,
   editComment,
@@ -159,4 +201,7 @@ export {
   dislikeComment,
   removeLike,
   removeDislike,
+  getCommentsWithMostLikes,
+  getCommentsWithMostDislikes,
+  getCommentsMostRecent,
 };

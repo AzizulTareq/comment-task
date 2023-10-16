@@ -1,9 +1,25 @@
 .comment-container {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .username {
-    color: rgb(9, 103, 157);
-    font-size: 18px;
-    font-weight: 600;
+  color: rgb(9, 103, 157);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.reactions {
+  display: flex;
+  margin: 5px 0px;
+}
+
+.likes {
+    color: rgb(81, 135, 0);
+    font-weight: 500;
+}
+
+.dislikes {
+  margin-left: 20px;
+  color: red;
+  font-weight: 500;
 }
