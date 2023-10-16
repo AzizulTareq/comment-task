@@ -28,23 +28,23 @@ Before you begin, ensure you have met the following requirements:
 2. Navigate to the project root directory:
 
   ```bash
-cd comment-task
-```
+   cd comment-task
+  ```
 3. In /backend folder create a .env file
 4. Install dependencies for the backend and run:
    ```bash
    cd backend/
-  npm install
-  npm start
+   npm install
+   npm start
 ```
 5. Return to the project root directory:
-  ```bash
+  ```
   cd ..
-```
+  ```
 4. Install dependencies for the frontend and run:
   ```bash
-   cd frontend/
+  cd frontend/
   npm install
   npm start
-```
+  ````
 5. Go to http://localhost:3000/
