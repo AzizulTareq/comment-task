@@ -1,0 +1,42 @@
+.comment-input {
+  height: 70px;
+  max-width: 800px;
+  width: 70%;
+  margin: 10px 0px;
+  margin-right: 10px;
+}
+
+@media (max-width: 1023px) {
+  .post-container {
+    margin: 15px 15px;
+  }
+
+  .comment-input {
+    width: 80%;
+  }
+}
+
+@media (max-width: 767px) {
+  .post-container {
+    margin: 15px 15px;
+  }
+
+  .comment-input {
+    width: 100%;
+  }
+}
+
+.post-button {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 30px;
+  background-color: rgb(9, 103, 157);
+  color: #ffff;
+  border: none;
+  cursor: pointer;
+}
+
+.post-button.disabled {
+  background-color: #ccc;
+  cursor: not-allowed; 
+}

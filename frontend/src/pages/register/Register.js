@@ -1,20 +1,22 @@
-import "./Form.scss";
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/loader/Loader";
-import { toast } from "react-toastify";
-import { useLoginMutation } from "../../slices/usersApiSlice";
-import { setCredentials } from "../../slices/authSlice";
+import "../login/Form.scss";
 
-function Login() {
+import { useRegisterMutation } from "../../slices/usersApiSlice";
+import { setCredentials } from "../../slices/authSlice";
+import { toast } from "react-toastify";
+
+const Register = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [login, { isLoading }] = useLoginMutation();
+  const [register, { isLoading }] = useRegisterMutation();
 
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -30,8 +32,9 @@ function Login() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
     try {
-      const res = await login({ email, password }).unwrap();
+      const res = await register({ name, email, password }).unwrap();
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
     } catch (err) {
@@ -47,7 +50,20 @@ function Login() {
         </>
       ) : (
         <div className="login-box">
-          <h2 className="login-title">Login</h2>
+          <h2 className="login-title">Create An Account</h2>
+          <div className="form-group">
+            <label className="form-label" htmlFor="name">
+              Name
+            </label>
+            <input
+              className="form-input"
+              type="text"
+              id="name"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
           <div className="form-group">
             <label className="form-label" htmlFor="email">
               Email
@@ -59,7 +75,6 @@ function Login() {
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              autoComplete="off"
             />
           </div>
           <div className="form-group">
@@ -73,16 +88,15 @@ function Login() {
               name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              autoComplete="off"
             />
           </div>
           <button className="login-button" onClick={submitHandler}>
-            Login
+            Register
           </button>
         </div>
       )}
     </div>
   );
-}
+};
 
-export default Login;
+export default Register;
