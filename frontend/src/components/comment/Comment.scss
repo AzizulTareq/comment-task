@@ -32,6 +32,14 @@
 .reaction-icon {
   margin-top: 3px;
   margin-left: 3px;
+  cursor: pointer;
+}
+
+.reaction-icon-delete {
+  margin-top: 6px;
+  margin-left: 3px;
+  color: red;
+  cursor: pointer;
 }
 
 .reaction-text {
@@ -40,4 +48,8 @@
 
 .reactions-list {
   margin-left: 20px;
+}
+
+.comment-delete {
+  display: flex;
 }

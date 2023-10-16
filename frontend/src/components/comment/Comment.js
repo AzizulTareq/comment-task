@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Comment.scss";
-import { AiFillLike, AiFillDislike } from "react-icons/ai";
+import { AiFillLike, AiFillDislike, AiFillDelete } from "react-icons/ai";
 import { BiLike, BiDislike } from "react-icons/bi";
 import {
   useReactCommentMutation,
@@ -59,7 +59,13 @@ const Comment = ({ data }) => {
   return (
     <div>
       <div className="comment-container">
-        <div className="username">{data?.user?.name}</div>
+        <div className="comment-delete">
+          <div className="username">{data?.user?.name}</div>
+          {data?.user?._id === userInfo?._id && (
+            <AiFillDelete className="reaction-icon-delete" size={18} />
+          )}
+        </div>
+
         <div>{data?.text}</div>
         <div className="reactions">
           <div className="likes">{likeCount} Likes</div>
