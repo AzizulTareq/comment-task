@@ -4,7 +4,7 @@
 
 .username {
   color: rgb(9, 103, 157);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -14,12 +14,30 @@
 }
 
 .likes {
-    color: rgb(81, 135, 0);
-    font-weight: 500;
+  color: rgb(81, 135, 0);
+  font-weight: 500;
 }
 
 .dislikes {
   margin-left: 20px;
   color: red;
   font-weight: 500;
+}
+
+.reaction-container {
+  display: flex;
+  align-items: center;
+}
+
+.reaction-icon {
+  margin-top: 3px;
+  margin-left: 3px;
+}
+
+.reaction-text {
+  margin-left: 3px;
+}
+
+.reactions-list {
+  margin-left: 20px;
 }

@@ -27,12 +27,12 @@ const PostDetails = () => {
             <p>{post?.content}</p>
           </div>
           <h3>Comments</h3>
-          {data.map((data) => (
-            <>
-              <div key={data.id}>
+          {data?.map((data) => (
+            <div key={data.id}>
+              <div>
                 <Comment data={data} />
               </div>
-            </>
+            </div>
           ))}
           <CreateComment postId={id} />
         </div>

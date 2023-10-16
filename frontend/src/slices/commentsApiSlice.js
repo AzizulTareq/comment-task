@@ -36,6 +36,22 @@ export const commentsApiSlice = apiSlice.injectEndpoints({
       }),
       providesTags: ["Comment"],
     }),
+    reactComment: builder.mutation({
+      query: (data) => ({
+        url: `${COMMENTS_URL}/react`,
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["Comment"],
+    }),
+    removeReact: builder.mutation({
+      query: (data) => ({
+        url: `${COMMENTS_URL}/remove-react`,
+        method: "POST",
+        body: data ,
+      }),
+      providesTags: ["Comment"],
+    }),
   }),
 });
 
@@ -44,4 +60,6 @@ export const {
   useCreateCommentMutation,
   useEditCommentMutation,
   useDeleteCommentMutation,
+  useReactCommentMutation,
+  useRemoveReactMutation,
 } = commentsApiSlice;
